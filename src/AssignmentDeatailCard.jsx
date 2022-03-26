@@ -1,7 +1,11 @@
 import React from "react";
- 
+import { useParams } from "react-router-dom";
 function AssignmentDetailCard(props){
+
+    const data = useParams()
+    console.log(data.assingnmentDeatail);
     return(
+
         <>
         <div className="pt-10 ">
             <div className="p-4 rounded-md bg-white">

@@ -1,22 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import assignment from "./MockData/Assignment";
+import { useParams } from "react-router-dom";
+ 
 function AssignmentCard(props){
+
     return(
     <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5">
         <div>
             <Link to=":id/assignmentdetail">
             <div className="p-3">
                 <div >
-                    <h1 className="flex space-x-2">{props.assignmentNumber} <span>{props.assignmentName}</span> <span>{props.date}</span></h1>
+                    <h1 className="flex font-medium text-gray-900" > # {props.id}
+                     <span className="ml-2">{props.assignmentName}</span> 
+                     <span className="ml-2 text-gray-500 ">({props.date})</span>
+                     </h1>
                 </div>
-                <div className="flex justify-between items-center my-2">
+                <div className="flex justify-between items-center ">
                     <div className="flex flex-col space-y-1">
-                        <h1>Due Date : {props.duedate}</h1>
-                        <h1>({props.warning})</h1>
+                        <h1 className="text-red-500">Due Date : {props.duedate}</h1>
+                        
                     </div>
                     <div >
-                        <h1 className="px-2 py-4">{props.submitStatus}</h1>
+                        <h1 className="px-2 py-4 font-medium text-green-600">{props.submitStatus}</h1>
                     </div>
                 </div>
             </div>
