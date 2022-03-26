@@ -1,6 +1,7 @@
 import React from "react";
 
 function LectureCard(props){
+   
     return(
         <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5 ">
             <div className="p-3">

@@ -12,23 +12,16 @@ function AssignmentDetailCard(props){
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-y">
                         <h1 className=" text-gray-600 font-semibold text-sm"> Title</h1>
                         <div className="">
-                         <h1>{props.title} xyz</h1>
+                         <h1>{props.title} </h1>
                         </div>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <h1 className="text-gray-600 font-semibold text-sm">Due Date</h1>
-                        <h1>{props.duedate} 12/02/2020</h1>
+                        <h1>{props.duedate} </h1>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <h1 className="text-gray-600 font-semibold text-sm">Description</h1>
-                        <h1>
-                            ]]]]]]
-                            ]]]]]
-                            ]]]]
-                            ]]]
-                            ]]
-                            ]
-                        </h1>
+                        <h1>{props.description}</h1>
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
                         <a href="" className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-md inline-block m-1"> Re-Submit</a>
