@@ -23,7 +23,7 @@ function AssignmentCard(props){
 
                     </div>
                     <div >
-                        <h1 className="px-2 py-4 font-medium text-green-600">{props.submitStatus}</h1>
+                        <h1 className=" py-2 font-medium text-green-600">{props.submitStatus}</h1>
                     </div>
                 </div>
             </div>
