@@ -5,10 +5,11 @@ import { useParams } from "react-router-dom";
  
 function AssignmentCard(props){
 
+    
     return(
     <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5">
         <div>
-            <Link to=":id/assignmentdetail">
+            <Link to={`${props.id}/assignmentdetail`}>
             <div className="p-3">
                 <div >
                     <h1 className="flex font-medium text-gray-900" > # {props.id}
@@ -19,7 +20,7 @@ function AssignmentCard(props){
                 <div className="flex justify-between items-center ">
                     <div className="flex flex-col space-y-1">
                         <h1 className="text-red-500">Due Date : {props.duedate}</h1>
-                        
+
                     </div>
                     <div >
                         <h1 className="px-2 py-4 font-medium text-green-600">{props.submitStatus}</h1>
