@@ -7,6 +7,7 @@ import {
 import AssignmentDetailCard from "./AssignmentDeatailCard";
 import Assignments from "./Assignments";
 import Lecture from "./Lecture";
+import LogInPage from "./LogInPage";
 import MainLayout from "./MainLayout";
 import PageNotFound from "./PageNotFound";
 import Profile from "./Profile";
@@ -17,6 +18,7 @@ function App() {
     
       <Routes>
         <Route path="quiz" element={<Quiz/>}></Route>
+        <Route path="login" element={<LogInPage></LogInPage>}></Route>
         <Route path="/" element={<Navigate to="/lecture" />} />
         <Route path="/" element={<MainLayout />} >
           <Route path="assignment" element={<Assignments/>}></Route>

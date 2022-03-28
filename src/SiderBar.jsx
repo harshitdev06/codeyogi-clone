@@ -15,6 +15,7 @@ function SlideBar() {
         </div>
       <div className="px-2 flex flex-col">
         <LinkComponent src="https://img.icons8.com/ios-glyphs/30/ffffff/test-account.png" to="/profile">Profile</LinkComponent>
+        <LinkComponent src="https://img.icons8.com/material-outlined/24/ffffff/exit.png " to="/login">LogOut</LinkComponent>
       </div>     
     </div>
   );
