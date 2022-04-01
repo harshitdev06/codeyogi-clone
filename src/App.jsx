@@ -12,6 +12,7 @@ import MainLayout from "./MainLayout";
 import PageNotFound from "./PageNotFound";
 import Profile from "./Profile";
 import Quiz from "./Quiz";
+import UserList from "./UserList";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="assignment" element={<Assignments/>}></Route>
           <Route path="lecture" element={<Lecture/>}></Route>
           <Route path="profile" element={<Profile/>}></Route>
+          <Route path="/studentslist" element={<UserList />}></Route>
           <Route path="assignment/:id/assignmentdetail" element={<AssignmentDetailCard />}></Route>
         </Route>
         <Route path="*" element={<PageNotFound />}></Route>

@@ -11,6 +11,7 @@ function SlideBar() {
                 <LinkComponent src="https://img.icons8.com/material-rounded/24/ffffff/podium-with-audience.png" to="/lecture">Lecture</LinkComponent>
                 <LinkComponent src="https://img.icons8.com/ios-glyphs/30/ffffff/questions.png" to="/quiz" >Quiz</LinkComponent>
                 <LinkComponent src="https://img.icons8.com/material-outlined/24/ffffff/assignment-return.png" to="/assignment">Assignments</LinkComponent> 
+                <LinkComponent src="https://img.icons8.com/material-outlined/24/ffffff/student-registration.png" to="/studentslist" >Students</LinkComponent>            
             </div>      
         </div>
       <div className="px-2 flex flex-col">
