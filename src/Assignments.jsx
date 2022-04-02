@@ -3,7 +3,15 @@ import AssignmentCard from "./AssignmentCard";
 import assignment from "./MockData/Assignment";
 
 function Assignments() {
-  return (<>
+
+    const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
+
+    const toggleReSubmisionPopUp =()=>{
+       setReSubmissionPopUp(!reSubmissionPopUp);
+    }
+
+  return (
+  <div className={ reSubmissionPopUp && "" }> 
     <div className="pt-10">
       <h1 className="mb-5 text-xl font-semibold">Assignment list </h1>
     </div>
@@ -13,6 +21,8 @@ function Assignments() {
         {
           assignment.map( (t) => {return (<AssignmentCard 
             id={t.id} 
+            reSubmissionPopUp={reSubmissionPopUp}
+            toggleReSubmisionPopUp={toggleReSubmisionPopUp}
             assignmentName={t.assignmentName} 
             date={t.publishingDate}
             duedate={t.dueDate} 
@@ -22,7 +32,8 @@ function Assignments() {
         </ul>
         </div>
       </div>
-    </>  
+     </div> 
+  
   );
 }
 

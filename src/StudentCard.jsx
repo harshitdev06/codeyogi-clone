@@ -1,13 +1,11 @@
 import React from "react";
-import axios from "axios";
 
 function StudentsCard({user}){
 
     return (
         <div className=" m-4 space-y-1">
-
-                <div className="w-64 shadow-md overflow-hidden">
-                    <img className="rounded-md object-cover h-full w-full" src={user.picture.large} alt="" />
+                <div className="w-64 shadow-md overflow-hidden border border-gray-100 drop-shadow-lg">
+                    <img className="rounded-md object-cover h-full w-full " src={user.picture.large} alt="" />
                 </div>
 
                 <div className="flex flex-col mt-2">
@@ -19,8 +17,8 @@ function StudentsCard({user}){
                     <a href="https://in.linkedin.com/"><img src="https://img.icons8.com/material-rounded/24/000000/linkedin--v1.png"/></a>
                     <a href="https://twitter.com/"><img src="https://img.icons8.com/android/24/000000/twitter.png"/></a>
                 </div>
-            
-            </div>
+        </div>
     );
 }
+
 export default StudentsCard;
