@@ -8,17 +8,14 @@ function UserList({}){
     
     const [user , setUserData]= React.useState([])
     const [spinner,setSpinner] = React.useState(true);
-    console.log(spinner);
     
-    const effect =  React.useEffect(()=>{
-        
+    React.useEffect(()=>{
         const promise = axios.get("https://randomuser.me/api/?results=30");
         promise.then( (reponse)=>{
         setUserData(reponse.data.results)
         setSpinner(false);
     })
     },[])
-    console.log(spinner);
 
     return(
         <div className="pt-10">

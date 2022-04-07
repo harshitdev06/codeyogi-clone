@@ -1,12 +1,26 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import assignmentDetails from "./MockData/assignmentDetails";
+import axios from "axios";
 
-function AssignmentDetailCard(props){
+function AssignmentDetailCard(){
+    
+    const [assignmetnDetails , setAssignmentDetails] =React.useState([]);
+
+     React.useEffect(()=>{
+        const promise = axios.get("https://api.codeyogi.io/assignments/:assignmentId",{withCredentials : true });
+        promise.then( (reponse)=>{
+        setAssignmentDetails(reponse.data)
+    })
+    },[])
+
 
     const data = useParams()
     const selectedAssignment = +(data.id);
-    const SelectedAssignmentObject =  assignmentDetails.find( a => a.id === selectedAssignment );
+    console.log(assignmetnDetails);
+    const SelectedAssignmentObject =  assignmetnDetails.find( a => a.id === selectedAssignment );
+
+    console.log(SelectedAssignmentObject);
+
     return(
 
         <>
@@ -20,18 +34,18 @@ function AssignmentDetailCard(props){
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-y">
                         <h1 className=" text-gray-600 font-semibold text-sm"> Title</h1>
                         <div className="">
-                         <h1>{SelectedAssignmentObject.title} </h1>
+                         <h1>{} </h1>
                         </div>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <h1 className="text-gray-600 font-semibold text-sm">Due Date</h1>
-                        <h1>{SelectedAssignmentObject.dueDate} </h1>
+                        <h1>{} </h1>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <dt className="text-gray-600 font-semibold text-sm">Description</dt>
                         <dd className="flex flex-col h-full w-full col-span-2">
-                        <h1>{SelectedAssignmentObject.Description}</h1>
-                        <img src={SelectedAssignmentObject.imgLink} alt="" />
+                        <h1>{}</h1>
+                        <img src={""} alt="" />
                         </dd>
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
