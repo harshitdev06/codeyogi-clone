@@ -4,23 +4,21 @@ import axios from "axios";
 
 function AssignmentDetailCard(){
     
-    const [assignmetnDetails , setAssignmentDetails] =React.useState([]);
+    const [assignmentDetails , setAssignmentDetails] =React.useState([]);
 
      React.useEffect(()=>{
-        const promise = axios.get("https://api.codeyogi.io/assignments/:assignmentId",{withCredentials : true });
+        const promise = axios.get("https://api.codeyogi.io/assignments/:assignmentId" , {withCredentials : true });
         promise.then( (reponse)=>{
         setAssignmentDetails(reponse.data)
     })
     },[])
 
 
-    const data = useParams()
-    const selectedAssignment = +(data.id);
-    console.log(assignmetnDetails);
-    const SelectedAssignmentObject =  assignmetnDetails.find( a => a.id === selectedAssignment );
+    // const data = useParams()
+    // const selectedAssignment = +(data.id);
+    // const SelectedAssignmentObject =  assignmentnDetails.find( a => a.id === selectedAssignment );
 
-    console.log(SelectedAssignmentObject);
-
+    console.log(assignmentDetails);
     return(
 
         <>

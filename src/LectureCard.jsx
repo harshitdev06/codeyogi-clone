@@ -87,7 +87,7 @@ function LectureCard({lecture }){
             <div className=" px-8 border-t  ">
                 <div className="py-4 w-full ">  
                 <a href={lecture["recording_url"]} target="_blank" type="blank" className="flex justify-center items-center space-x-2 text-center">
-                    <img src="https://img.icons8.com/material-rounded/24/000000/link--v1.png"/>
+                    <img src="https://img.icons8.com/material-rounded/24/4a90e2/external-link.png"/>
                     <span className="text-gray-500 font-medium hover:text-black">Watch/Download lecture</span></a>
                 </div>            
             </div>

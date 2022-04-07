@@ -1,6 +1,5 @@
 import React from "react";
 import AssignmentCard from "./AssignmentCard";
-import assignment from "./MockData/Assignment";
 import axios from "axios";
 import Loader from "./Loader";
 function Assignments() {
@@ -34,7 +33,7 @@ function Assignments() {
         <div className="w-full max-w-4xl space-y-8">
         <ul className= {" space-y-2 "}>
         {
-          !spinner && assignment.map( (t) => {return (<AssignmentCard assignment={t} />)})
+          !spinner && assignment.map( (t) => {return (<AssignmentCard key={t.id} assignment={t} />)})
         }
         </ul>
         { (reSubmissionPopUp) &&

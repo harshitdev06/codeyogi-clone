@@ -35,12 +35,12 @@ function AssignmentCard({assignment}){
             <div className="flex ">
                 <div  className=" flex flex-1">
                   <button  href="" className=" text-green-600 hover:text-green-700 font-semibold text-medium   h-full w-full py-4 flex justify-center items-center "> 
-                  <img className="mr-2" src="https://img.iconsprop8.com/external-free-is-layf-royyan-wijaya/24/26e07f/external-check-revamp-3-free-is-layf-royyan-wijaya-5.png"/>  
+                  <img className="mr-2" src="https://img.icons8.com/windows/32/26e07f/--checkmark-yes.png"/>  
                     Re-Submit</button>
                 </div>
                 <div className=" flex flex-1  border-l">
                   <a href={""} className="h-full w-full underline text-blue-600 hover:text-blue-700 font-semibold text-medium py-4 flex justify-center items-center">
-                    <img className="mr-2" src="https://img.icons8.com/material-rounded/24/000000/link--v1.png"/>
+                    <img className="mr-2" src="https://img.icons8.com/material-rounded/24/4a90e2/external-link.png"/>
                     See your Submission</a>
                 </div>
             </div>
