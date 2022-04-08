@@ -48,20 +48,24 @@ function AssignmentCard({assignment }){
                 </div>
             </div>
             { (reSubmissionPopUp) &&
-            <div className="h-screen fixed top-0 left-0 w-screen flex justify-center items-center z-10">        
-              <button onClick={toggleReSubmisionPopUp} className="fixed mr-4 mt-4 top-0 right-0">
+            <div className="h-screen fixed top-0 left-0 w-screen flex justify-center items-center">        
+              <button onClick={toggleReSubmisionPopUp} className="fixed mr-4 mt-4 top-0 right-0 ">
                  <img src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-arrow-arrow-line-royyan-wijaya-detailed-outline-royyan-wijaya-9.png"/>
               </button>
-              <div className="bg-white px-4 py-8 space-y-4 drop-shadow-xl rounded-md z-10">
-                <div className="border-y py-4 flex px-2 space-x-48 items-center justify-between">
-                  <h1 className="text-sm font-medium text-gray-400"> Submission link </h1>
-                  <input placeholder="Subimssion link" className="grow rounded border bg-gray-100 p-1" type="text" />
+              <div className="bg-gray-50 p-4 rounded-md p-4 max-w-2xl w-full border border-gray-200 shadow-md z-999 ">
+                <div className="border-y py-4 mt-5">
+                    <div className="flex space-x-10 py-4 items-center">
+                        <h1 className="text-sm text-gray-600  font-medium">Submission Link</h1>
+                        <input placeholder="Submission Link" type="text" className="grow shadow px-4 py-2 bg-gray-50 rounded-md border border-gray-400" />
+                    </div>
                 </div>
-                <button className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
+                <div className="py-4">
+                    <button className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
+                </div>
               </div>
             </div>
           }
-            
+        
         </div>
     </li>
     );
