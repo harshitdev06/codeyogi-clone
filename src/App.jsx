@@ -4,7 +4,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import AssignmentDetailCard from "./AssignmentDeatailCard";
+import AssignmentDetailPage from "./AssignmentDetailPage";
 import Assignments from "./Assignments";
 import Lecture from "./Lecture";
 import LogInPage from "./LogInPage";
@@ -26,7 +26,7 @@ function App() {
           <Route path="lecture" element={<Lecture/>}></Route>
           <Route path="profile" element={<Profile/>}></Route>
           <Route path="/studentslist" element={<UserList />}></Route>
-          <Route path="assignment/:id/assignmentdetail" element={<AssignmentDetailCard />}></Route>
+          <Route path="assignment/:id/assignmentdetail" element={<AssignmentDetailPage />}></Route>
         </Route>
         <Route path="*" element={<PageNotFound />}></Route>
       </Routes>

@@ -6,13 +6,14 @@ function LectureCard({lecture }){
 
     const date = lecture["created_at"];
     const splitedDate = date.split('T');
-
+console.log(lecture);
     
          const startTime = lecture["start_time"];
          const endTime = lecture["end_time"];
 
          const startTimeArray = startTime.split("T");
          const endTimeArray = endTime.split("T");
+         console.log(startTimeArray ,endTimeArray);
          const st = startTimeArray[1]
          const et = endTimeArray[1]
 

@@ -1,28 +1,12 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import axios from "axios";
+import MDEditor from '@uiw/react-md-editor';
 
-function AssignmentDetailCard(){
-    
-    const [assignmentDetails , setAssignmentDetails] =React.useState([]);
-
-     React.useEffect(()=>{
-        const promise = axios.get("https://api.codeyogi.io/assignments/:assignmentId" , {withCredentials : true });
-        promise.then( (reponse)=>{
-        setAssignmentDetails(reponse.data)
-    })
-    },[])
+function AssignmentDetailsCard({assignment}) {
 
 
-    // const data = useParams()
-    // const selectedAssignment = +(data.id);
-    // const SelectedAssignmentObject =  assignmentnDetails.find( a => a.id === selectedAssignment );
-
-    console.log(assignmentDetails);
     return(
-
-        <>
-        <div className="bg-gray-50">
+         <>
+                 <div className="bg-gray-50">
         <div className="pt-10 ">
             <div className="p-4 rounded-md bg-white">
                 <div className="flex ">
@@ -32,18 +16,17 @@ function AssignmentDetailCard(){
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-y">
                         <h1 className=" text-gray-600 font-semibold text-sm"> Title</h1>
                         <div className="">
-                         <h1>{} </h1>
+                         <h1>{assignment.title} </h1>
                         </div>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <h1 className="text-gray-600 font-semibold text-sm">Due Date</h1>
-                        <h1>{} </h1>
+                        <h1>{assignment.dueDate} </h1>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <dt className="text-gray-600 font-semibold text-sm">Description</dt>
                         <dd className="flex flex-col h-full w-full col-span-2">
-                        <h1>{}</h1>
-                        <img src={""} alt="" />
+                        <h1>{<MDEditor.Markdown className="!bg-white !text-black" source={assignment.description} />}</h1>
                         </dd>
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
@@ -55,7 +38,7 @@ function AssignmentDetailCard(){
             </div>
         </div>
        </div> 
-        </>
+         </>
     );
 }
-export default AssignmentDetailCard;
+export default AssignmentDetailsCard;
