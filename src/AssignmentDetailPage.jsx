@@ -20,8 +20,6 @@ function AssignmentDetailPage(){
     })
     },[])
 
-    console.log(assignmentDetails);
-
     return(<>
         {
           spinner && <Loader />

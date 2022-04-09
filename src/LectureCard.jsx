@@ -1,28 +1,28 @@
 import React from "react";
 import MDEditor from '@uiw/react-md-editor';
+import {DateTime} from "luxon"
 
 
-function LectureCard({lecture }){
+function LectureCard({lecture}){
 
     const date = lecture["created_at"];
     const splitedDate = date.split('T');
-console.log(lecture);
     
-         const startTime = lecture["start_time"];
-         const endTime = lecture["end_time"];
+        const startTime = lecture["start_time"];
+        const endTime = lecture["end_time"];
 
-         const startTimeArray = startTime.split("T");
-         const endTimeArray = endTime.split("T");
-         console.log(startTimeArray ,endTimeArray);
-         const st = startTimeArray[1]
-         const et = endTimeArray[1]
+        const startTimeArray = startTime.split("T");
+        const endTimeArray = endTime.split("T");
 
-         const actualSTarray = st.split("Z");
-         const actualETarray = et.split("Z");
-         const finalSt = actualSTarray[0];
-         const finalEt = actualETarray[0];
+        const st = startTimeArray[1]
+        const et = endTimeArray[1]
 
-         function getTimeInSeconds(str) {
+        const actualSTarray = st.split("Z");
+        const actualETarray = et.split("Z");
+        const finalSt = actualSTarray[0];
+        const finalEt = actualETarray[0];
+
+        function getTimeInSeconds(str) {
  
            let curr_time = [];
  
@@ -77,7 +77,7 @@ console.log(lecture);
         <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5 ">
             <div className="p-3">
                 <div className="">
-                    <h1 className="font-medium ">Lecture #{}<span className="text-gray-400 ml-3">({splitedDate[0]})</span></h1>
+                    <h1 className="font-medium ">Lecture #{lecture.index}<span className="text-gray-500 ml-3">({DateTime.fromISO(lecture.created_at).toFormat(`ccc LLL dd yyyy`)})</span></h1>
 
                     <span className="mt-1 text-sm text-gray-600">Duration : { convertSecToTime(diffInSecond)  } </span>
                 </div>

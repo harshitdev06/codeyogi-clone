@@ -29,8 +29,8 @@ function Lecture() {
         <div className="w-full max-w-4xl space-y-8">
         <ul className="space-y-2">
           {
-              !spinner &&   lecture.map((t)=>{return (
-             <LectureCard lecture={t} key={t.id} />)})
+              !spinner &&   lecture.map(( t )=>{return (
+             <LectureCard  lecture={t} key={t.id} />)})
           }
         </ul>
         </div>

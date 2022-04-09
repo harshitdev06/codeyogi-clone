@@ -1,12 +1,16 @@
 import React from "react";
 import MDEditor from '@uiw/react-md-editor';
+import SubmmissionCard from "./SubmmistionCard";
 
 function AssignmentDetailsCard({assignment}) {
 
-
+    const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
+    const toggleReSubmisionPopUp =()=>{
+        setReSubmissionPopUp(!reSubmissionPopUp);
+    }
     return(
          <>
-                 <div className="bg-gray-50">
+        <div className="bg-gray-50">
         <div className="pt-10 ">
             <div className="p-4 rounded-md bg-white">
                 <div className="flex ">
@@ -30,13 +34,16 @@ function AssignmentDetailsCard({assignment}) {
                         </dd>
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
-                        <a href="" className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-md inline-block m-1"> Re-Submit</a>
+                        <button onClick={toggleReSubmisionPopUp} className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-md inline-block m-1"> Re-Submit</button>
                         <a href="" className="text-blue-500   "> See your Submission</a>
                     </div>
                     <div></div>
                 </div>
             </div>
-        </div>
+            { (reSubmissionPopUp) &&
+               <SubmmissionCard assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
+            }
+         </div>
        </div> 
          </>
     );

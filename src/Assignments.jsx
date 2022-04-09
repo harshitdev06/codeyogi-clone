@@ -8,9 +8,7 @@ function Assignments() {
     const [spinner,setSpinner] = React.useState(true);
     let[assignment , setAssignment] = React.useState([])
 
- 
-
-     React.useEffect(()=>{
+    React.useEffect(()=>{
         const promise = axios.get("https://api.codeyogi.io/batches/1/assignments", { withCredentials: true});
         promise.then( (reponse)=>{
         setAssignment(reponse.data)
