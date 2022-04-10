@@ -35,7 +35,10 @@ function AssignmentDetailsCard({assignment}) {
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
                         <button onClick={toggleReSubmisionPopUp} className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-md inline-block m-1"> Re-Submit</button>
-                        <a href="" className="text-blue-500   "> See your Submission</a>
+                        <a href={""} className="text-blue-500  underline font-medium flex items-center "> 
+                            <img src="https://img.icons8.com/material-sharp/24/4a90e2/external-link.png"/>
+                            See your Submission
+                        </a>
                     </div>
                     <div></div>
                 </div>

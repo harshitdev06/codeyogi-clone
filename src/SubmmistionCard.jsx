@@ -1,17 +1,21 @@
 import React from "react";
 import axios from "axios";
 
-function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id}){
+function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , onSubmit}){
 
     const [submissionLink , setSubmissionLink] = React.useState('');
     const toSetSubmitInout = (data)=>{
         setSubmissionLink(data.target.value)
     }
-    const toSubmitAssignmentLink=()=>{ 
-        axios.put(`https://api.codeyogi.io/${assignment_id}/submit`,{submissionLink},{ withCredentials: true});
-    };
+    // const toSubmitAssignmentLink=()=>{ 
+    //     axios.put(`https://api.codeyogi.io/${assignment_id}/submit`,{submissionLink},{ withCredentials: true});
+    // };
+    const toPassLinkToParent =(e)=>{
+        e.preventDefault()
+        onSubmit(submissionLink)
+    }
     return (
-        <div className="h-screen fixed top-0 left-0 w-screen flex justify-center items-center">        
+        <form  className="h-screen fixed top-0 left-0 w-screen flex justify-center items-center">        
               <button onClick={toggleReSubmisionPopUp} className="fixed mr-4 mt-4 top-0 right-0 ">
                  <img src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-arrow-arrow-line-royyan-wijaya-detailed-outline-royyan-wijaya-9.png"/>
               </button>
@@ -23,10 +27,10 @@ function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id}){
                     </div>
                 </div>
                 <div className="py-4">
-                    <button onClick={toSubmitAssignmentLink} className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
+                    <button onClick={ toPassLinkToParent }  type="submit" className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
                 </div>
             </div>
-        </div>
+        </form>
     );
 }
 export default SubmmissionCard

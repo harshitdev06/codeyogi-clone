@@ -8,13 +8,18 @@ function AssignmentCard({assignment }){
     const splitedPublishingDate = publishingDate.split("T");
 
     const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
+    const [submittedLink , setSubmittedLink ] =React.useState('');
     const toggleReSubmisionPopUp =()=>{
         setReSubmissionPopUp(!reSubmissionPopUp);
     }
 
     const dueDate =assignment["due_date"];
     const splitedDueDate = dueDate.split("T");
-
+    
+    const fetchDatafromPopUp =(link)=>{
+        setSubmittedLink(link)
+        console.log(link);
+    }
     return(
     <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5">
         <div>
@@ -43,13 +48,13 @@ function AssignmentCard({assignment }){
                     Re-Submit</button>
                 </div>
                 <div className=" flex flex-1  border-l">
-                  <a href={""} className="h-full w-full underline text-blue-600 hover:text-blue-700 font-semibold text-medium py-4 flex justify-center items-center">
+                  <a href={submittedLink} target="_blank" className="h-full w-full underline text-blue-600 hover:text-blue-700 font-semibold text-medium py-4 flex justify-center items-center">
                     <img className="mr-2" src="https://img.icons8.com/material-rounded/24/4a90e2/external-link.png"/>
                     See your Submission</a>
                 </div>
             </div>
             { (reSubmissionPopUp) &&
-               <SubmmissionCard assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
+               <SubmmissionCard onSubmit={fetchDatafromPopUp} assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
             }
         </div>
     </li>
