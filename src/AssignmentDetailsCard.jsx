@@ -5,9 +5,14 @@ import SubmmissionCard from "./SubmmistionCard";
 function AssignmentDetailsCard({assignment}) {
 
     const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
+    const [submittedLink , setSubmittedLink ] =React.useState('');
     const toggleReSubmisionPopUp =()=>{
         setReSubmissionPopUp(!reSubmissionPopUp);
     }
+    const fetchDatafromPopUp =(link)=>{
+        setSubmittedLink(link)
+        console.log(link);
+    }    
     return(
          <>
         <div className="bg-gray-50">
@@ -35,7 +40,7 @@ function AssignmentDetailsCard({assignment}) {
                     </div>
                     <div className="py-5 space-x-4 flex items-center">
                         <button onClick={toggleReSubmisionPopUp} className="px-4 py-2 bg-indigo-700 text-white hover:bg-indigo-800 rounded-md inline-block m-1"> Re-Submit</button>
-                        <a href={""} className="text-blue-500  underline font-medium flex items-center "> 
+                        <a href={submittedLink} target="_blank" className="text-blue-500  underline font-medium flex items-center "> 
                             <img src="https://img.icons8.com/material-sharp/24/4a90e2/external-link.png"/>
                             See your Submission
                         </a>
@@ -44,7 +49,7 @@ function AssignmentDetailsCard({assignment}) {
                 </div>
             </div>
             { (reSubmissionPopUp) &&
-               <SubmmissionCard assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
+               <SubmmissionCard onSubmit={fetchDatafromPopUp} assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
             }
          </div>
        </div> 
