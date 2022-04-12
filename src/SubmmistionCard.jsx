@@ -1,18 +1,31 @@
 import React from "react";
 import axios from "axios";
+import {string} from  "yup";
 
 function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , onSubmit}){
 
     const [submissionLink , setSubmissionLink] = React.useState('');
+    const [submissionError , setSubmissionError ] = React.useState('');
+    const [isValidUrl , setIsValidUrl ] = React.useState(true);
+
     const toSetSubmitInout = (data)=>{
         setSubmissionLink(data.target.value)
     }
-    // const toSubmitAssignmentLink=()=>{ 
-    //     axios.put(`https://api.codeyogi.io/${assignment_id}/submit`,{submissionLink},{ withCredentials: true});
-    // };
-    const toPassLinkToParent =(e)=>{
+ 
+    const toPassDataToParent =(e)=>{
         e.preventDefault()
+
+        const urlValidator = string().url('This Url is\'nt valid.Please enter a Valid');
+        
+        try {
+            urlValidator.validateSync(submissionLink)
+        }catch(e){
+            setSubmissionError(e.message);
+        }
+
+        axios.put(`https://api.codeyogi.io/assignment/${assignment_id}/submit`,{submissionLink},{ withCredentials: true});
         onSubmit(submissionLink)
+        toggleReSubmisionPopUp();   
     }
     return (
         <form  className="h-screen fixed top-0 left-0 w-screen flex justify-center items-center">        
@@ -27,7 +40,7 @@ function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , onSubmit}){
                     </div>
                 </div>
                 <div className="py-4">
-                    <button onClick={ toPassLinkToParent }  type="submit" className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
+                    <button disabled={submissionLink === ""} onClick={ toPassDataToParent }  type="submit" className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">Submit</button>
                 </div>
             </div>
         </form>
