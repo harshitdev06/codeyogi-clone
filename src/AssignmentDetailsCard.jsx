@@ -1,6 +1,7 @@
 import React from "react";
 import MDEditor from '@uiw/react-md-editor';
 import SubmmissionCard from "./SubmmistionCard";
+import {DateTime} from "luxon";
 
 function AssignmentDetailsCard({assignment}) {
 
@@ -30,7 +31,7 @@ function AssignmentDetailsCard({assignment}) {
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <h1 className="text-gray-600 font-semibold text-sm">Due Date</h1>
-                        <h1>{assignment.dueDate} </h1>
+                        <h1>{DateTime.fromISO(assignment.due_date).toFormat(`ccc LLL dd y`)} </h1>
                     </div>
                     <div className="items-center py-4 sm:py-5 sm:grid sm:grid-cols-3 sm:gap-4 border-b">
                         <dt className="text-gray-600 font-semibold text-sm">Description</dt>

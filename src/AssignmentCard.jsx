@@ -1,25 +1,23 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import SubmmissionCard from "./SubmmistionCard";
+import {DateTime} from "luxon"
  
-function AssignmentCard({assignment }){
-  
-    const publishingDate = assignment["created_at"];
-    const splitedPublishingDate = publishingDate.split("T");
+function AssignmentCard({assignment ,  setNotificationPopUPText}){
 
     const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
     const [submittedLink , setSubmittedLink ] =React.useState('');
+
     const toggleReSubmisionPopUp =()=>{
         setReSubmissionPopUp(!reSubmissionPopUp);
     }
 
-    const dueDate =assignment["due_date"];
-    const splitedDueDate = dueDate.split("T");
-    
-    const fetchDatafromPopUp =(link)=>{
+    const fetchDatafromPopUp =(link , errorMessage)=>{
+        console.log(link , errorMessage);
         setSubmittedLink(link)
-        console.log(link);
+        setNotificationPopUPText(errorMessage)
     }
+
     return(
     <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5">
         <div>
@@ -28,12 +26,12 @@ function AssignmentCard({assignment }){
                 <div >
                     <h1 className="flex font-medium text-gray-900" > # {assignment.id}
                      <span className="ml-2">{assignment.title}</span> 
-                     <span className="ml-2 text-gray-500 ">({splitedPublishingDate[0]})</span>
+                     <span className="ml-2 text-gray-500 ">({DateTime.fromISO(assignment.created_at).toFormat(`ccc LLL dd y`)})</span>
                      </h1>
                 </div>
                 <div className="flex justify-between items-center ">
                     <div className="flex flex-col space-y-1">
-                        <h1 className="text-red-500">Due Date : {splitedDueDate[0]}</h1>
+                        <h1 className="text-red-500">Due Date : {DateTime.fromISO(assignment.due_date).toFormat(`ccc LLL dd y`)}</h1>
                     </div>
                     <div >
                         <h1 className=" py-2 font-medium text-green-600">{}</h1>
