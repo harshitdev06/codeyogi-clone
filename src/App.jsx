@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  Routes,
-  Route,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import AssignmentDetailPage from "./AssignmentDetailPage";
 import Assignments from "./Assignments";
 import Lecture from "./Lecture";
@@ -16,7 +12,6 @@ import UserList from "./UserList";
 
 function App() {
   return (
-    
       <Routes>
         <Route path="quiz" element={<Quiz/>}></Route>
         <Route path="login" element={<LogInPage></LogInPage>}></Route>
@@ -33,5 +28,4 @@ function App() {
     
   );
 }
-
 export default App;

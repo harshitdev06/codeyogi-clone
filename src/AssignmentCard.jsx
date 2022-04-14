@@ -11,11 +11,11 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
     const toggleReSubmisionPopUp =()=>{
         setReSubmissionPopUp(!reSubmissionPopUp);
     }
-
-    const fetchDatafromPopUp =(link , errorMessage)=>{
-        console.log(link , errorMessage);
-        setSubmittedLink(link)
+    const fetchErrorMessage = (errorMessage)=>{
         setNotificationPopUPText(errorMessage)
+    }
+    const fetchSubmittedLink =(link )=>{
+        setSubmittedLink(link)
     }
 
     return(
@@ -52,7 +52,7 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
                 </div>
             </div>
             { (reSubmissionPopUp) &&
-               <SubmmissionCard onSubmit={fetchDatafromPopUp} assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
+               <SubmmissionCard toSetErrorMessage={fetchErrorMessage} toSetSubmittedLink={fetchSubmittedLink} assignment_id={assignment.id} toggleReSubmisionPopUp={toggleReSubmisionPopUp} />
             }
         </div>
     </li>

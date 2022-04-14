@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import {string} from  "yup";
 
-function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , onSubmit}){
+function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , toSetSubmittedLink , toSetErrorMessage}){
 
     const [submissionLink , setSubmissionLink] = React.useState('');
 
@@ -16,9 +16,12 @@ function SubmmissionCard({ toggleReSubmisionPopUp , assignment_id , onSubmit}){
         try {
             string().url('This Url is not valid.Please enter a Valid url').validateSync(submissionLink);
         }catch(e){
-            onSubmit(submissionLink , e.message);
-        }
+            toSetErrorMessage(e.message);
+            return;
+        }finally{
             toggleReSubmisionPopUp();
+        }
+        toSetSubmittedLink(submissionLink)
         axios.put(`https://api.codeyogi.io/assignment/${assignment_id}/submit`,{submissionLink},{ withCredentials: true});
     }
     return (

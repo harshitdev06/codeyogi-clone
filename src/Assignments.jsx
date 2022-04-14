@@ -10,6 +10,7 @@ function Assignments() {
     const [spinner,setSpinner] = React.useState(true);
     const [assignment , setAssignment] = React.useState([])
     const [notificationPopupText , setNotificationPopUPText]= React.useState("")
+    const [ isNotificationVisible , setIsNotificationVisible] = React.useState(notificationPopupText)
 
     React.useEffect(()=>{
         const promise = axios.get("https://api.codeyogi.io/batches/1/assignments", { withCredentials: true});
@@ -19,7 +20,7 @@ function Assignments() {
     })
     },[])
 
-    console.log(notificationPopupText);
+    console.log(!notificationPopupText);
   return (
   <div className={"  " }> 
     <div className="pt-10">
