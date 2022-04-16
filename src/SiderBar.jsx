@@ -1,21 +1,19 @@
 import React from "react";
 import LinkComponent from "./LinkComponent";
 
-function SlideBar({ ExtraClassNames }) {
+function SlideBar({ toHideSideBar }) {
   return (
     <div
       className={
-        "sticky top-0 h-screen  pt-5 pb-4 bg-gray-800  w-60 flex flex-col justify-between z-50 " +
-        ExtraClassNames
+        "sticky top-0 h-screen  pt-5 pb-4 bg-gray-800  w-60 flex flex-col justify-between transition-all pop-up duration-500 delay-700    "
       }>
       <div className=" px-2 space-y-6">
         <div className="flex justify-between  ">
           <h1 className=" px-2 text-3xl  font-extrabold text-white">
             CODEYOGI
           </h1>
-          <button>
-            {" "}
-            <img src="https://img.icons8.com/material-sharp/24/ffffff/cancel--v1.png" />{" "}
+          <button className={" sm:hidden block"} onClick={toHideSideBar}>
+            <img src="https://img.icons8.com/material-rounded/24/ffffff/cancel--v1.png" />
           </button>
         </div>
         <div className=" flex flex-col">

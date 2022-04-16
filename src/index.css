@@ -5,3 +5,17 @@
 .wmde-markdown ul{
     list-style-type: disc;
 }
+
+.pop-up{
+  animation: createBox .50s;
+}
+@keyframes createBox {
+    
+  from {
+    margin-left: -100%;
+  }
+  to {
+    margin-left: 0%;
+  }
+
+} 
