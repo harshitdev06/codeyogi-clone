@@ -18,7 +18,7 @@ function LectureCard({lecture}){
         <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5 ">
             <div className="p-3">
                 <div className="">
-                    <h1 className="font-medium ">Lecture #{lecture.index}<span className="text-gray-500 ml-3">({DateTime.fromISO(lecture.created_at).toFormat(`ccc LLL dd y`)})</span></h1>
+                    <h1 className="font-medium ">Lecture #{}<span className="text-gray-500 ml-3">({DateTime.fromISO(lecture.created_at).toFormat(`ccc LLL dd y`)})</span></h1>
 
                     <span className="mt-1 text-sm text-gray-600">Duration : {cleanedDuration} </span>
                 </div>

@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 function QuizHeader(props) {
     return (
-     <div className="bg-gray-800 flex items-center justify-between px-20 ">
+     <div className="bg-gray-800 flex items-center justify-between sm:px-20 px-2 ">
         <div className=" space-x-4 py-4">
           <Link to="/lecture">
             <span className="font-semibold text-white">CodeYogi</span>          
