@@ -1,32 +1,30 @@
 import React from "react";
 import AssignmentCard from "./AssignmentCard";
-import axios from "axios";
 import Loader from "./Loader";
 import NotificationPopUP from "./NotificationPopUp";
 import MobileNavBar from "./MoblieNavBar";
 import { useOutletContext } from "react-router-dom";
+import { getAssignmentList } from "./Api";
 
 function Assignments() {
   const [spinner, setSpinner] = React.useState(true);
-  const [assignment, setAssignment] = React.useState([]);
+  const cashedData = JSON.parse(localStorage.getItem("assignmentList")) || [];
+  const [assignment, setAssignment] = React.useState(cashedData);
   const [notificationPopupText, setNotificationPopUPText] = React.useState("");
-  const [toggleSideBar, setTogggleSideBar] = useOutletContext()
-  console.log(toggleSideBar);
+  const [toggleSideBar, setTogggleSideBar] = useOutletContext();
   const toToggleSideBar = () => {
     setTogggleSideBar(!toggleSideBar);
   };
 
   React.useEffect(() => {
-    const promise = axios.get("https://api.codeyogi.io/batches/1/assignments", {
-      withCredentials: true,
-    });
-    promise.then((reponse) => {
-      setAssignment(reponse.data);
+    const promise = getAssignmentList();
+    promise.then((assignmentList) => {
+      setAssignment(assignmentList);
       setSpinner(false);
     });
   }, []);
   return (
-    <div className={"  "}>
+    <div>
       <MobileNavBar toToggleSideBar={toToggleSideBar} />
       <div className="pt-10">
         {spinner && <Loader />}

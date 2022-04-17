@@ -5,7 +5,7 @@ function SlideBar({ toHideSideBar }) {
   return (
     <div
       className={
-        "sticky top-0 h-screen  pt-5 pb-4 bg-gray-800  w-60 flex flex-col justify-between transition-all pop-up duration-500 delay-700    "
+        "sticky top-0 h-screen  pt-5 pb-4 bg-gray-800  w-60 flex flex-col justify-between sm:transition-none transition-all pop-up duration-500 delay-700    "
       }>
       <div className=" px-2 space-y-6">
         <div className="flex justify-between  ">

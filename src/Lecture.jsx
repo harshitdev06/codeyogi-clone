@@ -4,25 +4,27 @@ import axios from "axios";
 import Loader from "./Loader";
 import MobileNavBar from "./MoblieNavBar";
 import { useOutletContext } from "react-router-dom";
+import { getLectureList } from "./Api";
 
 function Lecture() {
 
-    const [spinner,setSpinner] = React.useState(true);
-    const [lecture , setLecture] = React.useState([]);
-    const [toggleSideBar, setTogggleSideBar] = useOutletContext()
-    console.log(toggleSideBar);
-    const toToggleSideBar = ()=>{
-      setTogggleSideBar(!toggleSideBar)
-    }
+    const cachedLectureList =
+      JSON.parse(localStorage.getItem("lectureList")) || [];
+    const [spinner, setSpinner] = React.useState(true);
+    const [lecture, setLecture] = React.useState(cachedLectureList);
+    const [toggleSideBar, setTogggleSideBar] = useOutletContext();
 
+    const toToggleSideBar = () => {
+      setTogggleSideBar(!toggleSideBar);
+    };
 
-     React.useEffect(()=>{
-        const promise = axios.get("https://api.codeyogi.io/batches/1/sessions",{withCredentials : true });
-        promise.then( (reponse)=>{
-        setLecture(reponse.data)
+    React.useEffect(() => {
+      const promise = getLectureList()
+      promise.then((lectureList) => {
+        setLecture(lectureList);
         setSpinner(false);
-    })
-    },[])
+      });
+    }, []);
 
 
   return (

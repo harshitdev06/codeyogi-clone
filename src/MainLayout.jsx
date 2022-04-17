@@ -19,7 +19,7 @@ function MainLayout() {
       <div className="sm:block hidden">
         <SlideBar />
       </div>
-      <div className="grow h-full bg-gray-50 sm:pl-8 flex-1 px-4 ">
+      <div className="grow h-full bg-gray-50 sm:pl-8 flex-1 pl-4 ">
         <div className="py-6">
           <div className="px-4">
             <Outlet context={[toggleSideBar, setTogggleSideBar]} />
