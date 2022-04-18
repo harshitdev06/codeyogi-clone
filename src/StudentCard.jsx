@@ -2,7 +2,7 @@ import React from "react";
 
 function StudentsCard({ user ,toggleSideBar }) {
   return (
-    <div className={" m-4 space-y-1 " + ( toggleSideBar && " -z-10 ")}>
+    <div className={" m-4 space-y-1 " + (toggleSideBar && " -z-10 ")}>
       <div className="w-64 shadow-md overflow-hidden border border-gray-100 drop-shadow-lg ">
         <img
           className="rounded-md object-cover h-full w-full "
@@ -10,7 +10,6 @@ function StudentsCard({ user ,toggleSideBar }) {
           alt=""
         />
       </div>
-
       <div className="flex flex-col mt-2">
         <h1 className="font-medium">
           {user.name.title} {user.name.last}
