@@ -4,28 +4,25 @@ import axios from "axios";
 import Loader from "./Loader";
 import MobileNavBar from "./MoblieNavBar";
 import { useOutletContext } from "react-router-dom";
-import { getLectureList } from "./Api";
+import { getLectureList, toDecachedData } from "./Api";
 
 function Lecture() {
+  const cachedLectureList = toDecachedData("lectureList") || [];
+  const [spinner, setSpinner] = React.useState(true);
+  const [lecture, setLecture] = React.useState(cachedLectureList);
+  const [toggleSideBar, setTogggleSideBar] = useOutletContext();
 
-    const cachedLectureList =
-      JSON.parse(localStorage.getItem("lectureList")) || [];
-    const [spinner, setSpinner] = React.useState(true);
-    const [lecture, setLecture] = React.useState(cachedLectureList);
-    const [toggleSideBar, setTogggleSideBar] = useOutletContext();
+  const toToggleSideBar = () => {
+    setTogggleSideBar(!toggleSideBar);
+  };
 
-    const toToggleSideBar = () => {
-      setTogggleSideBar(!toggleSideBar);
-    };
-
-    React.useEffect(() => {
-      const promise = getLectureList()
-      promise.then((lectureList) => {
-        setLecture(lectureList);
-        setSpinner(false);
-      });
-    }, []);
-
+  React.useEffect(() => {
+    const promise = getLectureList();
+    promise.then((lectureList) => {
+      setLecture(lectureList);
+      setSpinner(false);
+    });
+  }, []);
 
   return (
     <>
@@ -40,10 +37,9 @@ function Lecture() {
         }>
         <div className="w-full max-w-4xl space-y-8">
           <ul className="space-y-2">
-            {!spinner &&
-              lecture.map((t) => {
-                return <LectureCard lecture={t} key={t.id} />;
-              })}
+            {lecture.map((t) => {
+              return <LectureCard lecture={t} key={t.id} />;
+            })}
           </ul>
         </div>
       </div>

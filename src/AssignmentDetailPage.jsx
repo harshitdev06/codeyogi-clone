@@ -3,11 +3,10 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "./Loader";
 import AssignmentDetailsCard from "./AssignmentDetailsCard";
-import { getAssignmentDettails } from "./Api";
+import { getAssignmentDettails, toDecachedData } from "./Api";
 
 function AssignmentDetailPage() {
-  const cachedAssignmentDetails =
-    JSON.parse(localStorage.getItem("assignmentDeails")) || [];
+  const cachedAssignmentDetails = toDecachedData("assignmentDeails") || [];
   const [assignmentDetails, setAssignmentDetails] = React.useState(
     cachedAssignmentDetails
   );
@@ -27,7 +26,7 @@ function AssignmentDetailPage() {
   return (
     <>
       {spinner && <Loader />}
-      {!spinner && <AssignmentDetailsCard assignment={assignmentDetails} />}
+      {<AssignmentDetailsCard assignment={assignmentDetails} />}
     </>
   );
 }

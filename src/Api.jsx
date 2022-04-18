@@ -1,10 +1,14 @@
 import axios from "axios";
 
+const toCachedData = (key, data) => {
+  return localStorage.setItem(key, JSON.stringify(data));
+};
+
 export function getUser() {
   const response = axios.get("https://randomuser.me/api/?results=30");
   const usersPromise = response.then((u) => {
     const users = u.data.results;
-    localStorage.setItem("users", JSON.stringify(users));
+    toCachedData("users", users);
     return users;
   });
   return usersPromise;
@@ -19,7 +23,7 @@ export function getAssignmentList() {
   );
   const assignmentPromise = responsePromise.then((response) => {
     const assignmentList = response.data;
-    localStorage.setItem("assignmentList", JSON.stringify(assignmentList));
+    toCachedData("assignmentList", assignmentList);
     return assignmentList;
   });
   return assignmentPromise;
@@ -32,10 +36,7 @@ export function getAssignmentDettails(selectedAssignment) {
   );
   const detailsPromise = response.then((details) => {
     const assignmentDetails = details.data;
-    localStorage.setItem(
-      "assignmentDetails",
-      JSON.stringify(assignmentDetails)
-    );
+    toCachedData("assignmentDetails", assignmentDetails);
     return assignmentDetails;
   });
   return detailsPromise;
@@ -47,8 +48,12 @@ export function getLectureList() {
   });
   const lecturePromise = reposne.then((lecture) => {
     const lectureList = lecture.data;
-    localStorage.setItem("lectureList", JSON.stringify(lectureList));
+    toCachedData("lectureList", lectureList);
     return lectureList;
   });
   return lecturePromise;
 }
+
+export const toDecachedData = (key) => {
+  return JSON.parse(localStorage.getItem(key));
+};
