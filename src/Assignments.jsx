@@ -11,10 +11,6 @@ function Assignments() {
   const cashedData = toDecachedData("assignmentList") || [];
   const [assignment, setAssignment] = React.useState(cashedData);
   const [notificationPopupText, setNotificationPopUPText] = React.useState("");
-  const [toggleSideBar, setTogggleSideBar] = useOutletContext();
-  const toToggleSideBar = () => {
-    setTogggleSideBar(!toggleSideBar);
-  };
 
   React.useEffect(() => {
     const promise = getAssignmentList();
@@ -25,8 +21,7 @@ function Assignments() {
   }, []);
   return (
     <div>
-      <MobileNavBar toToggleSideBar={toToggleSideBar} />
-      <div className="pt-10">
+      <div className="pt-3 sm:pt-10">
         {spinner && <Loader />}
         <h1 className="mb-5 text-xl font-semibold">Assignment list </h1>
       </div>

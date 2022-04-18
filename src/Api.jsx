@@ -1,4 +1,6 @@
 import axios from "axios";
+ 
+const BASE_URL = "https://api.codeyogi.io";
 
 const toCachedData = (key, data) => {
   return localStorage.setItem(key, JSON.stringify(data));
@@ -15,12 +17,9 @@ export function getUser() {
 }
 
 export function getAssignmentList() {
-  const responsePromise = axios.get(
-    "https://api.codeyogi.io/batches/1/assignments",
-    {
-      withCredentials: true,
-    }
-  );
+  const responsePromise = axios.get(`${BASE_URL}/batches/1/assignments`, {
+    withCredentials: true,
+  });
   const assignmentPromise = responsePromise.then((response) => {
     const assignmentList = response.data;
     toCachedData("assignmentList", assignmentList);
@@ -30,10 +29,9 @@ export function getAssignmentList() {
 }
 
 export function getAssignmentDettails(selectedAssignment) {
-  const response = axios.get(
-    `https://api.codeyogi.io/assignments/${selectedAssignment}`,
-    { withCredentials: true }
-  );
+  const response = axios.get(`${BASE_URL}/assignments/${selectedAssignment}`, {
+    withCredentials: true,
+  });
   const detailsPromise = response.then((details) => {
     const assignmentDetails = details.data;
     toCachedData("assignmentDetails", assignmentDetails);
@@ -43,7 +41,7 @@ export function getAssignmentDettails(selectedAssignment) {
 }
 
 export function getLectureList() {
-  const reposne = axios.get("https://api.codeyogi.io/batches/1/sessions", {
+  const reposne = axios.get(`${BASE_URL}/batches/1/sessions`, {
     withCredentials: true,
   });
   const lecturePromise = reposne.then((lecture) => {

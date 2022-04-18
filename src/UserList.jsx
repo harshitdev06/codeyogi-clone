@@ -11,10 +11,6 @@ function UserList({}) {
   const cachedUsers = toDecachedData("users") || [];
   const [user, setUserData] = React.useState(cachedUsers);
   const [spinner, setSpinner] = React.useState(true);
-  const [toggleSideBar, setTogggleSideBar] = useOutletContext();
-  const toToggleSideBar = () => {
-    setTogggleSideBar(!toggleSideBar);
-  };
 
   React.useEffect(() => {
     const promise = getUser();
@@ -26,8 +22,7 @@ function UserList({}) {
 
   return (
     <>
-      <MobileNavBar toToggleSideBar={toToggleSideBar} />
-      <div className="pt-10 ">
+      <div className="pt-3 sm:pt-10 ">
         {spinner && <Loader />}
         <h1 className="mb-5 text-xl font-semibold">Students list </h1>
         <div className=" py-4 mt-2 bg-white flex justify-center items-center ">
