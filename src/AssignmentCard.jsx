@@ -5,19 +5,21 @@ import {DateTime} from "luxon"
  
 function AssignmentCard({assignment ,  setNotificationPopUPText}){
 
-    const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
-    const [submittedLink , setSubmittedLink ] =React.useState('');
+    const cleanDueDate = DateTime.fromISO(assignment.created_at).toFormat(
+      `dd / LL / y`
+    );
+    console.log(cleanDueDate);
+    const [reSubmissionPopUp, setReSubmissionPopUp] = React.useState(false);
 
-    const toggleReSubmisionPopUp =()=>{
-        setReSubmissionPopUp(!reSubmissionPopUp);
-    }
-    const fetchErrorMessage = (errorMessage)=>{
-        setNotificationPopUPText(errorMessage)
-    }
-    const fetchSubmittedLink =(link )=>{
-        setSubmittedLink(link)
-    }
+    const toggleReSubmisionPopUp = () => {
+      setReSubmissionPopUp(!reSubmissionPopUp);
+    };
+    const fetchErrorMessage = (errorMessage) => {
+      setNotificationPopUPText(errorMessage);
+    };
 
+    const submittedLink = assignment.submissions[0].submission_link; 
+    
     const submitted = <h1 className=" py-2 font-medium text-green-600" >Submitted</h1>
     const notSubmitted = <h1 className=" py-2 font-medium text-red-600" >Not Submitted</h1>
     
@@ -28,7 +30,7 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
             <div className="p-3">
               <div className="flex-flex-col sm:flex sm:flex-row items-start">
                 <h1 className="flex font-medium text-gray-900">
-                  # {assignment.id}
+                  #{assignment.id}
                   <span className="ml-2">{assignment.title}</span>
                 </h1>
                 <span className="ml-2 text-gray-500 ">

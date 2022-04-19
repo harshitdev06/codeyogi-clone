@@ -1,9 +1,6 @@
-import React from "react";
+import React, {  } from "react";
 import LectureCard from "./LectureCard";
-import axios from "axios";
 import Loader from "./Loader";
-import MobileNavBar from "./MoblieNavBar";
-import { useOutletContext } from "react-router-dom";
 import { getLectureList, toDecachedData } from "./Api";
 
 function Lecture() {

@@ -14,6 +14,8 @@ function AssignmentDetailsCard({assignment}) {
         setSubmittedLink(link)
         console.log(link);
     }    
+    console.log();
+
     return (
       <>
         <div className="bg-gray-50">
@@ -67,7 +69,7 @@ function AssignmentDetailsCard({assignment}) {
                     Re-Submit
                   </button>
                   <a
-                    href={submittedLink}
+                    href={assignment.submissions[0].submission_link}
                     target="_blank"
                     className="text-blue-500  underline font-medium flex items-center ">
                     <img src="https://img.icons8.com/material-sharp/24/4a90e2/external-link.png" />

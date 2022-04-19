@@ -1,11 +1,11 @@
 import React from "react";
 
-function StudentsCard({ user ,toggleSideBar }) {
+function StudentsCard({ user }) {
   return (
-    <div className={" m-4 space-y-1 " + (toggleSideBar && " -z-10 ")}>
+    <div className={" m-4 space-y-1 " }>
       <div className="w-64 shadow-md overflow-hidden border border-gray-100 drop-shadow-lg ">
         <img
-          className="rounded-md object-cover h-full w-full "
+          className="rounded-md object-cover h-full w-full  - "
           src={user.picture.large}
           alt=""
         />

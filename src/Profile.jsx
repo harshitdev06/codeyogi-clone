@@ -3,14 +3,8 @@ import { useOutletContext } from "react-router-dom";
 import MobileNavBar from "./MoblieNavBar";
 
 function Profile() {
-  const [toggleSideBar, setTogggleSideBar] = useOutletContext();
-  console.log(toggleSideBar);
-  const toToggleSideBar = () => {
-    setTogggleSideBar(!toggleSideBar);
-  };
   return (
     <>
-      <MobileNavBar toToggleSideBar={toToggleSideBar} />
       <form className="h-full  pt-10">
         <div className="p-4 rounded-md bg-white">
           <h1 className="font-medium text-lg"> Personal details</h1>

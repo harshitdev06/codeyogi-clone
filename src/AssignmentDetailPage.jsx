@@ -6,7 +6,8 @@ import AssignmentDetailsCard from "./AssignmentDetailsCard";
 import { getAssignmentDettails, toDecachedData } from "./Api";
 
 function AssignmentDetailPage() {
-  const cachedAssignmentDetails = toDecachedData("assignmentDeails") || [];
+  const cachedAssignmentDetails =
+    toDecachedData("assignmentDeails") || undefined;
   const [assignmentDetails, setAssignmentDetails] = React.useState(
     cachedAssignmentDetails
   );
@@ -22,7 +23,7 @@ function AssignmentDetailPage() {
       setSpinner(false);
     });
   }, []);
-
+  if (!assignmentDetails) return <></>;
   return (
     <>
       {spinner && <Loader />}

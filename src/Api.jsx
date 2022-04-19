@@ -1,55 +1,47 @@
 import axios from "axios";
  
 const BASE_URL = "https://api.codeyogi.io";
+const RANDOMUSER_BASE_URL = "https://randomuser.me/api";
 
 const toCachedData = (key, data) => {
   return localStorage.setItem(key, JSON.stringify(data));
 };
 
-export function getUser() {
-  const response = axios.get("https://randomuser.me/api/?results=30");
-  const usersPromise = response.then((u) => {
-    const users = u.data.results;
-    toCachedData("users", users);
-    return users;
-  });
-  return usersPromise;
+export async function getUser() {
+  const response = await axios.get(`${RANDOMUSER_BASE_URL}/?results=30`);
+  const users = response.data.results;
+  toCachedData("users", users);
+  return users;
 }
 
-export function getAssignmentList() {
-  const responsePromise = axios.get(`${BASE_URL}/batches/1/assignments`, {
+export async function getAssignmentList() {
+  const responsePromise = await axios.get(`${BASE_URL}/batches/1/assignments`, {
     withCredentials: true,
   });
-  const assignmentPromise = responsePromise.then((response) => {
-    const assignmentList = response.data;
-    toCachedData("assignmentList", assignmentList);
-    return assignmentList;
-  });
-  return assignmentPromise;
+  const assignmentList = responsePromise.data;
+  toCachedData("assignmentList", assignmentList);
+  return assignmentList;
 }
 
-export function getAssignmentDettails(selectedAssignment) {
-  const response = axios.get(`${BASE_URL}/assignments/${selectedAssignment}`, {
-    withCredentials: true,
-  });
-  const detailsPromise = response.then((details) => {
-    const assignmentDetails = details.data;
-    toCachedData("assignmentDetails", assignmentDetails);
-    return assignmentDetails;
-  });
-  return detailsPromise;
+export async function getAssignmentDettails(selectedAssignment) {
+  const response = await axios.get(
+    `${BASE_URL}/assignments/${selectedAssignment}`,
+    {
+      withCredentials: true,
+    }
+  );
+  const assignmentDetails = response.data;
+  toCachedData("assignmentDetails", assignmentDetails);
+  return assignmentDetails;
 }
 
-export function getLectureList() {
-  const reposne = axios.get(`${BASE_URL}/batches/1/sessions`, {
+export async function getLectureList() {
+  const reposne = await axios.get(`${BASE_URL}/batches/1/sessions`, {
     withCredentials: true,
   });
-  const lecturePromise = reposne.then((lecture) => {
-    const lectureList = lecture.data;
-    toCachedData("lectureList", lectureList);
-    return lectureList;
-  });
-  return lecturePromise;
+  const lectureList = reposne.data;
+  toCachedData("lectureList", lectureList);
+  return lectureList;
 }
 
 export const toDecachedData = (key) => {

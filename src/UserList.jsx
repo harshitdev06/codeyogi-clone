@@ -22,14 +22,14 @@ function UserList({}) {
 
   return (
     <>
-      <div className="pt-3 sm:pt-10 ">
+      <div className="pt-3 sm:pt-10  ">
         {spinner && <Loader />}
         <h1 className="mb-5 text-xl font-semibold">Students list </h1>
         <div className=" py-4 mt-2 bg-white flex justify-center items-center ">
           <div className="w-full max-w-4xl ">
             <div className="flex  flex-wrap justify-center items-center  ">
               {user.map((u) => (
-                <StudentsCard user={u} toggleSideBar={toggleSideBar} />
+                <StudentsCard user={u} />
               ))}
             </div>
           </div>
