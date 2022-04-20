@@ -7,6 +7,13 @@ const toCachedData = (key, data) => {
   return localStorage.setItem(key, JSON.stringify(data));
 };
 
+export async function getMyProfileDetails() {
+  const reposne = await axios.get(`${BASE_URL}/me`, { withCredentials: true });
+  const myProfileDetails = reposne.data;
+  toCachedData("myProfileDetails", myProfileDetails);
+  return myProfileDetails;
+}
+
 export async function getUser() {
   const response = await axios.get(`${RANDOMUSER_BASE_URL}/?results=30`);
   const users = response.data.results;

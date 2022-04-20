@@ -27,7 +27,7 @@ function AssignmentDetailPage() {
   return (
     <>
       {spinner && <Loader />}
-      {<AssignmentDetailsCard assignment={assignmentDetails} />}
+      <AssignmentDetailsCard assignment={assignmentDetails} />
     </>
   );
 }
