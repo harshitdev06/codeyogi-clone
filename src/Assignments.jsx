@@ -19,13 +19,16 @@ function Assignments() {
       setSpinner(false);
     });
   }, []);
+  setTimeout(() => {
+    setNotificationPopUPText("");
+  }, 2000);
   return (
     <div>
       <div className="pt-3 sm:pt-10">
         {spinner && <Loader />}
         <h1 className="mb-5 text-xl font-semibold">Assignment list </h1>
       </div>
-      <div className="fixed flex justify-center items-center top-10">
+      <div className="fixed  top-10 right-50">
         {notificationPopupText && (
           <NotificationPopUP notification={notificationPopupText} />
         )}

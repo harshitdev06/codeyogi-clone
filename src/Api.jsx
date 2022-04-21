@@ -50,7 +50,14 @@ export async function getLectureList() {
   toCachedData("lectureList", lectureList);
   return lectureList;
 }
-
+ export async function toPutAssignmentLink(assignment_id, submissionLink) {
+   await axios.put(
+     `https://api.codeyogi.io/assignment/${assignment_id}/submit`,
+     { submissionLink },
+     { withCredentials: true }
+   );
+ }
+  
 export const toDecachedData = (key) => {
   return JSON.parse(localStorage.getItem(key));
 };

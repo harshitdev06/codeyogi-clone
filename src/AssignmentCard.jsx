@@ -8,7 +8,6 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
     const cleanDueDate = DateTime.fromISO(assignment.created_at).toFormat(
       `dd / LL / y`
     );
-    console.log(cleanDueDate);
     const [reSubmissionPopUp, setReSubmissionPopUp] = React.useState(false);
 
     const toggleReSubmisionPopUp = () => {
@@ -16,6 +15,9 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
     };
     const fetchErrorMessage = (errorMessage) => {
       setNotificationPopUPText(errorMessage);
+    };
+    const fetchSubmittedLink = (link) => {
+      console.log(link);
     };
 
     const submittedLink = assignment.submissions[0].submission_link; 
