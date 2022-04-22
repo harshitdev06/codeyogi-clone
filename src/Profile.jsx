@@ -5,6 +5,7 @@ import DropDown from "./DropDown";
 import FormikInput from "./FormikInput";
 
 function Profile({ myProfileDetails }) {
+  
   const handelDropDown = (event) => {
     console.log(event.target.value);
   };
@@ -21,15 +22,15 @@ function Profile({ myProfileDetails }) {
   });
 
   const intialValues = {
-    first_name: "",
-    last_name: "",
-    email: "",
-    institution_name: "",
-    year_of_passout: "",
-    phone_number: "",
-    roll_number: "",
-    branch: "",
-    dob: "",
+    first_name: myProfileDetails.first_name,
+    last_name: myProfileDetails.last_name,
+    email: myProfileDetails.email,
+    institution_name: myProfileDetails.institute.name,
+    year_of_passout: myProfileDetails.year_of_pass_out,
+    phone_number: myProfileDetails.phone_no,
+    roll_number: myProfileDetails.institute_roll_no,
+    branch: myProfileDetails.branch,
+    dob: myProfileDetails.date_of_birth,
   };
 
   return (
@@ -133,7 +134,9 @@ function Profile({ myProfileDetails }) {
               </dd>
             </div>
             <div className=" p-5 ">
-              <button className="px-10 text-sm font-medium inline-block py-2 bg-indigo-700 text-white rounded-md">
+              <button
+                type="submit"
+                className="px-10 text-sm font-medium inline-block py-2 bg-indigo-700 text-white rounded-md">
                 Update
               </button>
             </div>

@@ -9,7 +9,7 @@ const toCachedData = (key, data) => {
 
 export async function getMyProfileDetails() {
   const reposne = await axios.get(`${BASE_URL}/me`, { withCredentials: true });
-  const myProfileDetails = reposne.data;
+  const myProfileDetails = reposne.data.data;
   toCachedData("myProfileDetails", myProfileDetails);
   return myProfileDetails;
 }
