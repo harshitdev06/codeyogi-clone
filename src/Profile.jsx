@@ -1,7 +1,13 @@
 import React from "react";
+import DropDown from "./DropDown";
+import FormikInput from "./FormikInput";
 
 function Profile({ myProfileDetails }) {
-    console.log(myProfileDetails);
+
+    
+  const handelDropDown = (event)=>{
+       console.log(event.target.value)
+  }
   return (
     <form className="h-full  pt-10">
       <div className="p-4 rounded-md bg-white">
@@ -14,18 +20,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -34,18 +29,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -54,18 +38,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -74,18 +47,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -94,18 +56,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -114,18 +65,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="number"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -134,18 +74,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -154,22 +83,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <select
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md">
-                    <option value="">Mobile with keybord</option>
-                    <option value="">mobile without keyboard</option>
-                    <option value="">Personal computer</option>
-                    <option value="">Collage computer</option>
-                  </select>
-                </div>
+                <DropDown handelDropDown={handelDropDown} />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -178,18 +92,7 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
@@ -198,23 +101,11 @@ function Profile({ myProfileDetails }) {
                 <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
-                <div className="m-1">
-                  {" "}
-                  <input
-                    type="text"
-                    className="appearance-none
-                  relative block w-full px-3
-                  py-2 border border-gray-300
-                  placeholder-gray-500 text-gray-900
-                  bg-gray-50
-                  rounded-md"
-                  />
-                </div>
+                <FormikInput />
               </dd>
             </div>
             <div className=" p-5 ">
               <button className="px-10 text-sm font-medium inline-block py-2 bg-indigo-700 text-white rounded-md">
-                {" "}
                 Update
               </button>
             </div>

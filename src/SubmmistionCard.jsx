@@ -6,7 +6,6 @@ import { toPutAssignmentLink } from "./Api";
 function SubmmissionCard({
   toggleReSubmisionPopUp,
   assignment_id,
-  toSetSubmittedLink,
   toSetErrorMessage,
 }) {
   const [submissionLink, setSubmissionLink] = React.useState("");
@@ -28,10 +27,8 @@ function SubmmissionCard({
       toSetErrorMessage(e.message);
       return;
     } finally {
-      errorMessage && toggleReSubmisionPopUp();
-      toPutAssignmentLink(assignment_id);
+      toggleReSubmisionPopUp();
     }
-    toSetSubmittedLink(submissionLink);
     toPutAssignmentLink(assignment_id, submissionLink);
   };
   return (
