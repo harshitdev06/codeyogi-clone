@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { getMyProfileDetails, toDecachedData } from "./Api";
+import AlertContext from "./Context";
 import Loader from "./Loader";
+import NotificationPopUP from "./NotificationPopUp";
 import Profile from "./Profile";
 
 function ProfilePage() {
@@ -18,7 +20,6 @@ function ProfilePage() {
       setSpinner(false);
     });
   }, []);
-
   if (!myProfileDetails) return <></>;
   return (
     <>

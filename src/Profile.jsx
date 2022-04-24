@@ -1,20 +1,18 @@
 import { Form, Formik } from "formik";
-import React from "react";
+import React, { useContext } from "react";
 import { object, date, number, string } from "yup";
 import DropDown from "./DropDown";
 import FormikInput from "./FormikInput";
+import { DateTime } from "luxon";
+import AlertContext from "./Context";
 
 function Profile({ myProfileDetails }) {
-  
-  const handelDropDown = (event) => {
-    console.log(event.target.value);
-  };
   const onFormSubmit = (data) => {
     console.log(data);
   };
   const validationSchema = object().shape({
     email: string().required().email(),
-    phone_number: string().min(10),
+    phone_number: string().required().min(10),
     first_name: string().required(),
     last_name: string().required(),
     year_of_passout: date().required(),
@@ -30,7 +28,10 @@ function Profile({ myProfileDetails }) {
     phone_number: myProfileDetails.phone_no,
     roll_number: myProfileDetails.institute_roll_no,
     branch: myProfileDetails.branch,
-    dob: myProfileDetails.date_of_birth,
+    dob: DateTime.fromISO(myProfileDetails.date_of_birth).toFormat(`dd-LL-y`),
+  };
+  const handelDropDown = (event) => {
+    console.log(event.target.value);
   };
 
   return (
@@ -71,10 +72,7 @@ function Profile({ myProfileDetails }) {
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 s items-center">
-              <dt className="text-sm gray-600 font-medium">
-                Institution Name
-                <span className="text-red-600">*</span>
-              </dt>
+              <dt className="text-sm gray-600 font-medium">Institution Name</dt>
               <dd className="col-span-2">
                 <FormikInput name={"institution_name"} />
               </dd>
@@ -98,10 +96,7 @@ function Profile({ myProfileDetails }) {
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
-              <dt className="text-sm gray-600 font-medium">
-                Date Of Birth
-                <span className="text-red-600">*</span>
-              </dt>
+              <dt className="text-sm gray-600 font-medium">Date Of Birth</dt>
               <dd className="">
                 <FormikInput name={"dob"} type={Date} />
               </dd>
@@ -109,7 +104,6 @@ function Profile({ myProfileDetails }) {
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
               <dt className="text-sm gray-600 font-medium">
                 Device you are using for assignment
-                <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
                 <DropDown handelDropDown={handelDropDown} />
@@ -118,17 +112,13 @@ function Profile({ myProfileDetails }) {
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
               <dt className="text-sm gray-600 font-medium">
                 Institution Roll No.
-                <span className="text-red-600">*</span>
               </dt>
               <dd className="col-span-2">
                 <FormikInput name={"roll_number"} type={number} />
               </dd>
             </div>
             <div className="p-5 border-b grid grid-cols-3 gap-4 items-center">
-              <dt className="text-sm gray-600 font-medium">
-                Branch
-                <span className="text-red-600">*</span>
-              </dt>
+              <dt className="text-sm gray-600 font-medium">Branch</dt>
               <dd className="col-span-2">
                 <FormikInput name={"branch"} />
               </dd>

@@ -2,6 +2,8 @@ import React from "react";
 import { Routes, Route, Navigate} from "react-router-dom";
 import AssignmentDetailPage from "./AssignmentDetailPage";
 import Assignments from "./Assignments";
+import AlertContext from "./Context";
+import Context from "./Context";
 import Lecture from "./Lecture";
 import LogInPage from "./LogInPage";
 import MainLayout from "./MainLayout";
@@ -11,6 +13,8 @@ import Quiz from "./Quiz";
 import UserList from "./UserList";
 
 function App() {
+  const [message, setMessage] = React.useState("");
+  const valueObject = { message, setMessage };
   return (
     <Routes>
       <Route path="quiz" element={<Quiz />}></Route>

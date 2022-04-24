@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useField } from "formik";
+import AlertContext from "./Context";
 
 function FormikInput({ name, type }) {
   const [field, meta] = useField(name);
+
   return (
     <div className="m-1">
       <input

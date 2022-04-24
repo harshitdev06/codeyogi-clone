@@ -13,16 +13,16 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
     const toggleReSubmisionPopUp = () => {
       setReSubmissionPopUp(!reSubmissionPopUp);
     };
-    const fetchErrorMessage = (errorMessage) => {
-      setNotificationPopUPText(errorMessage);
-    };
 
+    const submittedLink = assignment.submissions[0].submission_link;
 
-    const submittedLink = assignment.submissions[0].submission_link; 
-    
-    const submitted = <h1 className=" py-2 font-medium text-green-600" >Submitted</h1>
-    const notSubmitted = <h1 className=" py-2 font-medium text-red-600" >Not Submitted</h1>
-    
+    const submitted = (
+      <h1 className=" py-2 font-medium text-green-600">Submitted</h1>
+    );
+    const notSubmitted = (
+      <h1 className=" py-2 font-medium text-red-600">Not Submitted</h1>
+    );
+
     return (
       <li className="w-full border-2 border-gray-100 bg-white rounded-lg shadow-lg mb-5">
         <div>
@@ -91,7 +91,6 @@ function AssignmentCard({assignment ,  setNotificationPopUPText}){
           )}
           {reSubmissionPopUp && (
             <SubmmissionCard
-              toSetErrorMessage={fetchErrorMessage}
               assignment_id={assignment.id}
               toggleReSubmisionPopUp={toggleReSubmisionPopUp}
             />

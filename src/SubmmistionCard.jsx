@@ -6,7 +6,6 @@ import { toPutAssignmentLink } from "./Api";
 function SubmmissionCard({
   toggleReSubmisionPopUp,
   assignment_id,
-  toSetErrorMessage,
 }) {
   const [submissionLink, setSubmissionLink] = React.useState("");
   const [errorMessage, setErrorMessage] = React.useState("");
@@ -15,7 +14,7 @@ function SubmmissionCard({
     setSubmissionLink(data.target.value);
   };
 
-  const toPassDataToParent = (e) => {
+  const onSubmit = (e) => {
     e.preventDefault();
 
     try {
@@ -24,7 +23,6 @@ function SubmmissionCard({
         .validateSync(submissionLink);
     } catch (e) {
       setErrorMessage(e.message);
-      toSetErrorMessage(e.message);
       return;
     } finally {
       toggleReSubmisionPopUp();
@@ -55,7 +53,7 @@ function SubmmissionCard({
         </div>
         <div className="py-4 flex justify-between">
           <button
-            onClick={toPassDataToParent}
+            onClick={onSubmit}
             type="submit"
             className="px-8 rounded py-2 bg-indigo-600 text-white font-medium inline-block ">
             Submit
