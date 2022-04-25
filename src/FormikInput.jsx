@@ -4,6 +4,7 @@ import AlertContext from "./Context";
 
 function FormikInput({ name, type }) {
   const [field, meta] = useField(name);
+  const { setMessage } = useContext(AlertContext);
 
   return (
     <div className="m-1">

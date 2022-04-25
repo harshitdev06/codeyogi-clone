@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, setTimeout } from "react";
 import { getMyProfileDetails, toDecachedData } from "./Api";
 import AlertContext from "./Context";
 import Loader from "./Loader";
@@ -20,10 +20,15 @@ function ProfilePage() {
       setSpinner(false);
     });
   }, []);
+  const { message } = useContext(AlertContext);
+
+  console.log(message);
+
   if (!myProfileDetails) return <></>;
   return (
     <>
       {spinner && <Loader />}
+      {message && <NotificationPopUP />}
       <Profile myProfileDetails={myProfileDetails} />
     </>
   );

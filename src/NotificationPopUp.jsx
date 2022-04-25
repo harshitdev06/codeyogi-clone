@@ -1,21 +1,25 @@
 import React, { useContext } from "react";
 import AlertContext from "./Context";
 
-function NotificationPopUP({ notification }) {
-
+function NotificationPopUP({}) {
+  const { message, setMessage } = useContext(AlertContext);
   return (
-    <>
-      <div
-        className={
-          " bg-red-100 p-4 w-full shadow rounded-md transition-all fade-in fade-out delay-200 duration-200"
-        }>
-        <div className="flex space-x-2 items-center">
-          <h1 className="text-red-400 font-medium ">Failed</h1>
-          <img src="https://img.icons8.com/material-rounded/24/fa314a/error--v1.png" />
+    <div
+      className={
+        " bg-green-100 fixed z-50 max-w-md sm:max-w-5xl border w-full border-green-2 p-4 shadow rounded-md "
+      }>
+      <div className="flex justify-between item-center">
+        <div>
+          <h1 className="text-green-400 font-medium ">Success !!</h1>
+          <h1 className="font-medium text-gray-800">{message}</h1>
         </div>
-        <h1 className="font-medium text-gray-800">Reason : {} </h1>
+        <button
+          className="font-bold text-medium text-gray-800 p-1"
+          onClick={() => setMessage("")}>
+          X
+        </button>
       </div>
-    </>
+    </div>
   );
 }
 export default NotificationPopUP;

@@ -16,21 +16,25 @@ function App() {
   const [message, setMessage] = React.useState("");
   const valueObject = { message, setMessage };
   return (
-    <Routes>
-      <Route path="quiz" element={<Quiz />}></Route>
-      <Route path="login" element={<LogInPage></LogInPage>}></Route>
-      <Route path="/" element={<Navigate to="/lecture" />} />
-      <Route path="/" element={<MainLayout />}>
-        <Route path="assignment" element={<Assignments />}></Route>
-        <Route path="lecture" element={<Lecture />}></Route>
-        <Route path="profile" element={<ProfilePage />}></Route>
-        <Route path="/studentslist" element={<UserList />}></Route>
-        <Route
-          path="assignment/:id/assignmentdetail"
-          element={<AssignmentDetailPage />}></Route>
-      </Route>
-      <Route path="*" element={<PageNotFound />}></Route>
-    </Routes>
+    <AlertContext.Provider value={valueObject}>
+      <div>
+        <Routes>
+          <Route path="quiz" element={<Quiz />}></Route>
+          <Route path="login" element={<LogInPage></LogInPage>}></Route>
+          <Route path="/" element={<Navigate to="/lecture" />} />
+          <Route path="/" element={<MainLayout />}>
+            <Route path="assignment" element={<Assignments />}></Route>
+            <Route path="lecture" element={<Lecture />}></Route>
+            <Route path="profile" element={<ProfilePage />}></Route>
+            <Route path="/studentslist" element={<UserList />}></Route>
+            <Route
+              path="assignment/:id/assignmentdetail"
+              element={<AssignmentDetailPage />}></Route>
+          </Route>
+          <Route path="*" element={<PageNotFound />}></Route>
+        </Routes>
+      </div>
+    </AlertContext.Provider>
   );
 }
 export default App;

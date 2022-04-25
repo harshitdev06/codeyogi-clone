@@ -7,8 +7,11 @@ import { DateTime } from "luxon";
 import AlertContext from "./Context";
 
 function Profile({ myProfileDetails }) {
+  console.log(myProfileDetails);
+  const { setMessage } = useContext(AlertContext);
   const onFormSubmit = (data) => {
     console.log(data);
+    setMessage("Profile Saved Successffully");
   };
   const validationSchema = object().shape({
     email: string().required().email(),
@@ -33,6 +36,7 @@ function Profile({ myProfileDetails }) {
   const handelDropDown = (event) => {
     console.log(event.target.value);
   };
+
 
   return (
     <div className="h-full  pt-10">
