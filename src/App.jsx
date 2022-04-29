@@ -3,7 +3,6 @@ import { Routes, Route, Navigate} from "react-router-dom";
 import AssignmentDetailPage from "./AssignmentDetailPage";
 import Assignments from "./Assignments";
 import AlertContext from "./Context";
-import Context from "./Context";
 import Lecture from "./Lecture";
 import LogInPage from "./LogInPage";
 import MainLayout from "./MainLayout";
@@ -13,10 +12,23 @@ import Quiz from "./Quiz";
 import UserList from "./UserList";
 
 function App() {
-  const [message, setMessage] = React.useState("");
-  const valueObject = { message, setMessage };
+  const [alert, setAlert] = React.useState(null);
+  const removeAlert = () => {
+    setAlert(null);
+  };
+  const showAlert = (message, status = "success", dismiss = 3) => {
+    setAlert({
+      message,
+      status,
+    });
+    dismiss &&
+      setTimeout(() => {
+        removeAlert();
+      }, dismiss * 1000);
+  };
+  const data = { alert, showAlert, removeAlert };
   return (
-    <AlertContext.Provider value={valueObject}>
+    <AlertContext.Provider value={data}>
       <div>
         <Routes>
           <Route path="quiz" element={<Quiz />}></Route>

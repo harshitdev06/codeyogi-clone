@@ -8,7 +8,7 @@ function MainLayout() {
   const toHideSideBar = () => {
     setTogggleSideBar(!toggleSideBar);
   };
-    console.log(toggleSideBar);
+
     return (
       <div className="h-full flex items-stretch ">
         {toggleSideBar && (

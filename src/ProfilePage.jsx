@@ -11,6 +11,7 @@ function ProfilePage() {
   const [myProfileDetails, setMyProfileDetails] = React.useState(
     cachedMyProfileDetails
   );
+
   const [spinner, setSpinner] = React.useState(true);
 
   React.useEffect(() => {
@@ -20,18 +21,14 @@ function ProfilePage() {
       setSpinner(false);
     });
   }, []);
-  const { message } = useContext(AlertContext);
-
-  console.log(message);
 
   if (!myProfileDetails) return <></>;
   return (
     <>
       {spinner && <Loader />}
-      {message && <NotificationPopUP />}
+      <NotificationPopUP />
       <Profile myProfileDetails={myProfileDetails} />
     </>
   );
 }
-
 export default ProfilePage;

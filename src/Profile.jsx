@@ -7,12 +7,13 @@ import { DateTime } from "luxon";
 import AlertContext from "./Context";
 
 function Profile({ myProfileDetails }) {
-  console.log(myProfileDetails);
-  const { setMessage } = useContext(AlertContext);
+  const { showAlert } = useContext(AlertContext);
+
   const onFormSubmit = (data) => {
     console.log(data);
-    setMessage("Profile Saved Successffully");
+    showAlert("Login sucessfully !!");
   };
+    
   const validationSchema = object().shape({
     email: string().required().email(),
     phone_number: string().required().min(10),
