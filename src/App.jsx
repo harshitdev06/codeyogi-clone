@@ -10,23 +10,27 @@ import PageNotFound from "./PageNotFound";
 import ProfilePage from "./ProfilePage";
 import Quiz from "./Quiz";
 import UserList from "./UserList";
+import { uniqueId } from "lodash";
 
 function App() {
-  const [alert, setAlert] = React.useState(null);
-  const removeAlert = () => {
-    setAlert(null);
-  };
-  const showAlert = (message, status = "success", dismiss = 3) => {
-    setAlert({
-      message,
-      status,
-    });
+  const [alerts, setAlerts] = React.useState([]);
+
+  const showAlerts = (message, status = "success", dismiss = 4) => {
+    const id = uniqueId();
+    const alert = { message, status, id };
+    setAlerts([...alerts, alert]);
     dismiss &&
       setTimeout(() => {
-        removeAlert();
+        removeAlert(alert);
       }, dismiss * 1000);
   };
-  const data = { alert, showAlert, removeAlert };
+  const removeAlert = (alert) => {
+    setAlerts((latestData) => {
+      return latestData.filter((a) => a !== alert);
+    });
+  };
+
+  const data = { alerts, showAlerts, removeAlert };
   return (
     <AlertContext.Provider value={data}>
       <div>

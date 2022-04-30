@@ -1,9 +1,9 @@
-import React, { useContext, setTimeout } from "react";
+import React from "react";
 import { getMyProfileDetails, toDecachedData } from "./Api";
-import AlertContext from "./Context";
 import Loader from "./Loader";
-import NotificationPopUP from "./NotificationPopUp";
+import Alert from "./Alert";
 import Profile from "./Profile";
+import AlertList from "./AlertList";
 
 function ProfilePage() {
   const cachedMyProfileDetails =
@@ -26,7 +26,7 @@ function ProfilePage() {
   return (
     <>
       {spinner && <Loader />}
-      <NotificationPopUP />
+      <AlertList />
       <Profile myProfileDetails={myProfileDetails} />
     </>
   );
