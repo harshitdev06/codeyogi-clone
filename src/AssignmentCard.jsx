@@ -12,8 +12,9 @@ function AssignmentCard({ assignment, setNotificationPopUPText }) {
   const toggleReSubmisionPopUp = () => {
     setReSubmissionPopUp(!reSubmissionPopUp);
   };
-
-  // const submittedLink = assignment.submissions[0].submission_link;
+  const submittedLink = assignment.submissions.length
+    ? assignment.submissions[0].submission_link
+    : null;
 
   const submitted = (
     <h1 className=" py-2 font-medium text-green-600">Submitted</h1>
@@ -67,6 +68,7 @@ function AssignmentCard({ assignment, setNotificationPopUPText }) {
             <div className=" flex flex-1  border-l">
               <a
                 target="_blank"
+                href={submittedLink}
                 className="h-full w-full underline text-blue-600 hover:text-blue-700 font-semibold text-medium py-4 flex justify-center items-center">
                 <img
                   className="mr-2"
