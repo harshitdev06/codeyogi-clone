@@ -11,7 +11,7 @@ function Profile({ myProfileDetails }) {
 
   const onFormSubmit = (data) => {
     console.log(data);
-    showAlerts("Login sucessfully !!");
+    showAlerts("Profile updated sucessfully !!");
   };
     
   const validationSchema = object().shape({

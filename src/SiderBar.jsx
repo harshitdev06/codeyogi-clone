@@ -9,9 +9,7 @@ function SlideBar({ toHideSideBar }) {
       }>
       <div className=" px-2 space-y-6">
         <div className="flex justify-between  ">
-          <h1 className=" px-2 text-3xl  font-extrabold text-white">
-            CODEYOGI
-          </h1>
+          <h1 className=" px-2 text-3xl  font-extrabold text-white">EdTech</h1>
           <button className={" sm:hidden block"} onClick={toHideSideBar}>
             <img src="https://img.icons8.com/material-rounded/24/ffffff/cancel--v1.png" />
           </button>
