@@ -3,10 +3,8 @@ import { Link } from "react-router-dom";
 import SubmmissionCard from "./SubmmistionCard";
 import {DateTime} from "luxon"
  
-function AssignmentCard({ assignment, setNotificationPopUPText }) {
-  const cleanDueDate = DateTime.fromISO(assignment.created_at).toFormat(
-    `dd / LL / y`
-  );
+function AssignmentCard({ assignment }) {
+  console.log(assignment);
   const [reSubmissionPopUp, setReSubmissionPopUp] = React.useState(false);
 
   const toggleReSubmisionPopUp = () => {
@@ -57,7 +55,7 @@ function AssignmentCard({ assignment, setNotificationPopUPText }) {
             <div className=" flex flex-1">
               <button
                 onClick={toggleReSubmisionPopUp}
-                className=" text-green-600 hover:text-green-700 font-semibold text-medium   h-full w-full py-4 flex justify-center items-center ">
+                className=" text-green-600 hover:text-green-700 font-semibold text-medium h-full w-full py-4 flex justify-center items-center ">
                 <img
                   className="mr-2"
                   src="https://img.icons8.com/windows/32/26e07f/--checkmark-yes.png"
@@ -83,6 +81,10 @@ function AssignmentCard({ assignment, setNotificationPopUPText }) {
             <button
               onClick={toggleReSubmisionPopUp}
               className=" text-green-600 hover:text-green-700 font-semibold text-medium   h-full w-full py-4 flex justify-center items-center ">
+              <img
+                className="mr-2"
+                src="https://img.icons8.com/windows/32/26e07f/--checkmark-yes.png"
+              />
               Submit
             </button>
           </div>

@@ -19,7 +19,7 @@ function MainLayout() {
         <div className="sm:block hidden z-10  ">
           <SlideBar />
         </div>
-        <div className="grow h-full bg-gray-50 sm:pl-8 flex-1  z-20 ">
+        <div className="grow h-full bg-gray-100 sm:pl-8 flex-1  z-20 ">
           <div className="sm:hidden block pl-3 pt-3 ">
             <MobileNavBar toToggleSideBar={toHideSideBar} />
           </div>

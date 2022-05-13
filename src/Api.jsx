@@ -20,6 +20,14 @@ export async function getUser() {
   toCachedData("users", users);
   return users;
 }
+export async function getLectureList() {
+  const reposne = await axios.get(`${BASE_URL}/batches/1/sessions`, {
+    withCredentials: true,
+  });
+  const lectureList = reposne.data;
+  toCachedData("lectureList", lectureList);
+  return lectureList;
+}
 
 export async function getAssignmentList() {
   const responsePromise = await axios.get(`${BASE_URL}/batches/1/assignments`, {
@@ -29,6 +37,8 @@ export async function getAssignmentList() {
   toCachedData("assignmentList", assignmentList);
   return assignmentList;
 }
+
+
 
 export async function getAssignmentDettails(selectedAssignment) {
   const response = await axios.get(
@@ -40,15 +50,6 @@ export async function getAssignmentDettails(selectedAssignment) {
   const assignmentDetails = response.data;
   toCachedData("assignmentDetails", assignmentDetails);
   return assignmentDetails;
-}
-
-export async function getLectureList() {
-  const reposne = await axios.get(`${BASE_URL}/batches/1/sessions`, {
-    withCredentials: true,
-  });
-  const lectureList = reposne.data;
-  toCachedData("lectureList", lectureList);
-  return lectureList;
 }
  export async function toPutAssignmentLink(assignment_id, submissionLink) {
    await axios.put(

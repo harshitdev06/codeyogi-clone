@@ -24,7 +24,7 @@ function Lecture() {
       </div>
       <div
         className={
-          "  px-4 py-4 mt-2 bg-white flex justify-center items-center "
+          "  px-4 py-4 mt-2 bg-gray-50 flex justify-center items-center "
         }>
         <div className="w-full max-w-4xl space-y-8">
           <ul className="space-y-2">

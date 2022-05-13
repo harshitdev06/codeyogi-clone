@@ -41,7 +41,7 @@ function Profile({ myProfileDetails }) {
 
   return (
     <div className="h-full  pt-10">
-      <div className="p-4 rounded-md bg-white">
+      <div className="p-4 rounded-md bg-gray-50">
         <h1 className="font-medium text-lg"> Personal details</h1>
         <Formik
           onSubmit={onFormSubmit}

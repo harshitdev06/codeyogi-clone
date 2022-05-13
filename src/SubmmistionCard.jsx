@@ -22,6 +22,7 @@ function SubmmissionCard({
         .url("This Url is not valid.Please enter a Valid url")
         .validateSync(submissionLink);
     } catch (e) {
+      console.log(e);
       setErrorMessage(e.message);
       return;
     } finally {
@@ -31,7 +32,7 @@ function SubmmissionCard({
   };
   return (
     <div className=" h-screen fixed top-0 left-0 w-screen flex justify-center items-center ">
-      <div className=" bg-gray-50 p-4 rounded-md p-4 max-w-md sm:max-w-2xl w-full border border-gray-200 shadow-md  ">
+      <div className=" bg-gray-50 p-4 rounded-md max-w-md sm:max-w-2xl w-full border border-gray-200 shadow-md  ">
         <div className=" border-y py-4 mt-5 ">
           <div className=" flex space-x-10 py-4 items-center ">
             <h1 className=" text-sm text-gray-600 font-medium ">

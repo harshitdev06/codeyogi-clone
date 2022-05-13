@@ -4,6 +4,7 @@ import SubmmissionCard from "./SubmmistionCard";
 import {DateTime} from "luxon";
 
 function AssignmentDetailsCard({assignment}) {
+  console.log(assignment);
 
     const [ reSubmissionPopUp, setReSubmissionPopUp ] = React.useState(false); 
     const [submittedLink , setSubmittedLink ] =React.useState('');
